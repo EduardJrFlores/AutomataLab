@@ -34,7 +34,7 @@ dfa2 = DFA(
     states={'q0', 'q1', 'q2', 'q3'},
     alphabet={'a', 'b'},
     start_state='q0',
-    accept_states={'q3'},
+    accept_states={'q3', 'q0'},
     transitions={
         ('q0', 'a'): 'q1',
         ('q0', 'b'): 'q2',
@@ -50,10 +50,32 @@ dfa2 = DFA(
 
 print("Automation 1: ")
 for s in ["101", "11010", "1000", "1101", "1100", "10101"]:
-    print(f"{s} -> {'Accepted' if dfa1.accepts(s) else 'Rejected'}")
+    print(f"{s} : {'Accepted' if dfa1.accepts(s) else 'Rejected'}")
           
+
+""""
+OUTPUT
+    101 : Accepted
+    11010 : Accepted
+    1000 : Accepted
+    1101 : Rejected
+    1100 : Rejected
+    10101 : Rejected
+"""
+
 print()
 
 print("Automation 2: ")
-for s in ["ab", "babb", "ababba", "aaa", "bbb", "abba"]:
-    print(f"{s} -> {'Accepted' if dfa2.accepts(s) else 'Rejected'}")
+for s in ["baba", "babb", "ababba", "aaaab", "bbaba", "abbab"]:
+    print(f"{s} : {'Accepted' if dfa2.accepts(s) else 'Rejected'}")
+
+
+""""
+OUTPUT
+    baba : Accepted
+    babb : Accepted
+    ababba : Accepted
+    aaaab : Rejected
+    bbaba : Rejected
+    abbab : Rejected
+"""
