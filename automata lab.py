@@ -66,7 +66,7 @@ OUTPUT
 print()
 
 print("Automation 2: ")
-for s in ["baba", "babb", "ababba", "aaaab", "bbaba", "abbab"]:
+for s in ["ab", "babb", "ababba", "aaaab", "bbaba", "abbab"]:
     print(f"{s} : {'Accepted' if dfa2.accepts(s) else 'Rejected'}")
 
 
